@@ -1,20 +1,33 @@
 package antifraud;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-@Entity(name = "user")
+@Entity(name = "users")
 public class User {
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column
+    @Column(unique = true)
+    @NotNull
     private String userName;
     @Column
+    @NotNull
     private String password;
     @Column
     private String role;
+    @Column
+    @NotNull
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public String getRole() {
         return role;

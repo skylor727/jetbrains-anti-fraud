@@ -33,7 +33,12 @@ public class Controller {
     }
 
     @PostMapping("/api/auth/user")
-    public void user(@RequestBody User user) {
+    public UserInfo user(@RequestBody User user) {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserName(user.getUserName());
+        userInfo.setName(user.getName());
         userService.saveOrUpdate(user);
+        userInfo.setId(user.getId());
+        return userInfo;
     }
 }
