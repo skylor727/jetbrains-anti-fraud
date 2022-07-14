@@ -1,3 +1,4 @@
+
 package antifraud;
 
 public class UserInfo {

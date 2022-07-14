@@ -2,6 +2,7 @@ package antifraud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +17,14 @@ public class Controller {
     @Autowired
     UserService userService;
 
+    @GetMapping("/loggedin")
+    public String loggedIn() {
+        return "beep boop";
+    }
+
     @GetMapping("/")
     public String greeting() {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         return "Hello world";
     }
 
@@ -31,6 +38,18 @@ public class Controller {
         }
         return map;
     }
+
+
+    @GetMapping("/user")
+    public String user() {
+        return "/user accessed";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "/admin accessed";
+    }
+
 
     @PostMapping("/api/auth/user")
     public UserInfo user(@RequestBody User user) {

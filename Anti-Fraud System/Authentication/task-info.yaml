@@ -552,9 +552,6 @@ files:
         }
     }
   learner_created: true
-- name: src/antifraud/User.java
-  visible: true
-  learner_created: true
 - name: src/antifraud/UserRepository.java
   visible: true
   learner_created: true
@@ -567,7 +564,13 @@ files:
 - name: src/antifraud/RestAuthenticationEntryPoint.java
   visible: true
   learner_created: true
+- name: src/antifraud/User.java
+  visible: true
+  learner_created: true
 - name: src/antifraud/UserInfo.java
+  visible: true
+  learner_created: true
+- name: src/antifraud/UserAuthorities.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18068#comment

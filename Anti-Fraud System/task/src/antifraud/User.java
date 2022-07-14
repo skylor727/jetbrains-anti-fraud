@@ -3,14 +3,14 @@ package antifraud;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity(name = "users")
+@Entity(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(unique = true)
     @NotNull
-    private String userName;
+    private String username;
     @Column
     @NotNull
     private String password;
@@ -19,6 +19,17 @@ public class User {
     @Column
     @NotNull
     private String name;
+    @Column(columnDefinition = "boolean default true")
+    private boolean active = true;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
 
     public String getName() {
         return name;
@@ -43,7 +54,7 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public void setPassword(String password) {
@@ -56,12 +67,10 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
-
-
 }
